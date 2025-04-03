@@ -12,7 +12,9 @@
     "baseUrl": "./",
     "paths": {
       "*": ["./src/*"],
-      "Domain": ["./src/Domain/*"]
+      "Domain": ["./src/Domain/*"],
+      "Application": ["./src/Application/*"],
+      "Infrastructure": ["./src/Infrastructure/*"]
     },
     "esModuleInterop": true
   },
