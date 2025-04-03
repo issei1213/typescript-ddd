@@ -1,9 +1,12 @@
 import { BookId } from "Domain/models/Book/BookId/BookId";
+import { IBookRepository } from "Domain/models/Book/IBookRepository";
 
 export class ISBNDuplicationCheckDomainService {
+  constructor(private bookRepository: IBookRepository) {}
+
   async execute(isbn: BookId): Promise<boolean> {
-    // 本来は、データベースに問い合わせて重複があるか確認する。この章では省略。
-    const isDuplicateISBN = false;
+    const duplicatesISBNBooks = await this.bookRepository.find(isbn);
+    const isDuplicateISBN = !!duplicatesISBNBooks;
 
     return isDuplicateISBN;
   }
